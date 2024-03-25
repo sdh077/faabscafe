@@ -1,0 +1,95 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+
+  h5 {
+    @apply text-xl;
+  }
+
+  h6 {
+    @apply text-lg;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'YClover-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  /* font-family: 'YClover-Bold'; */
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", 'Lato', sans-serif;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* 타임키퍼 버튼 css 누락건 */
+:where(.css-dev-only-do-not-override-zl9ks2) a {
+  color: #1677ff;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  -webkit-text-decoration-skip: objects;
+}
+
+:where(.css-dev-only-do-not-override-zl9ks2).ant-btn-primary {
+  color: #fff;
+  background: #1677ff;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+/* Buttons */
+.btn,
+.btn-lg,
+.btn-sm,
+.btn-xs {
+  @apply font-medium text-sm inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out;
+}
+
+.btn {
+  @apply px-3 py-2;
+}
+
+.btn-lg {
+  @apply px-4 py-3;
+}
+
+.btn-sm {
+  @apply px-2 py-1;
+}
+
+.btn-xs {
+  @apply px-2 py-0.5;
+}
