@@ -35,7 +35,7 @@ export default async function Home() {
             <h4 className='mb-10'>{category.title}</h4>
             <div className='grid grid-cols-2 lg:grid-cols-4 '>
               {category.goods?.map(goods =>
-                <CardComponent key={goods.id} img={goods.img} title={goods.name} content={goods.flavor} link={`/shop/${goods.id}`} flavor={goods.flavor} />
+                <CardComponent key={goods.id} id={goods.id} img={goods.img} title={goods.name} content={goods.flavor} link={`/shop/${goods.id}`} flavor={goods.flavor} />
               )}
             </div>
           </div>)}

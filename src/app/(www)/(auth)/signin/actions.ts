@@ -45,7 +45,7 @@ export async function login(prevState: any, formData: FormData) {
   }
   const token = jwt.sign(users[0], 'shhhhh');
   cookies().set('token', token)
-  cookies().set('id', users[0].name)
+  cookies().set('uid', users[0].id)
   cookies().set('name', users[0].name)
   const callback = formData.get('callback') ?? ''
   if (callback && typeof callback === 'string') redirect(callback)
@@ -54,7 +54,7 @@ export async function login(prevState: any, formData: FormData) {
 
 export async function logout() {
   cookies().delete('token')
-  cookies().delete('id')
+  cookies().delete('uid')
   cookies().delete('name')
   redirect(`/`)
 }

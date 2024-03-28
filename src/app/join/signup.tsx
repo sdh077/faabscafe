@@ -3,22 +3,9 @@
 import Link from "next/link"
 import Script from "next/script"
 import { signup } from "./actions";
-interface IAddr {
-    address: string;
-    zonecode: string;
-}
+import { postSearch } from "@/lib/address";
+
 export default function Signup() {
-    const postSearch = () => {
-        new window.daum.Postcode({
-            oncomplete: function (data: IAddr) {
-                (document.getElementById("address1") as HTMLInputElement).value =
-                    data.address;
-                (document.getElementById("address_post") as HTMLInputElement).value =
-                    data.zonecode;
-                document.getElementById("address2")?.focus();
-            },
-        }).open();
-    }
     return (
         <form action={signup}>
             <div className="space-y-4">
@@ -78,9 +65,8 @@ export default function Signup() {
                 </label>
             </div>
             <div className="flex items-center justify-between mt-6">
-                <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap w-full" type="submit">Sign Up</button>
+                <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap w-full" type="submit">추가</button>
             </div>
-            <Script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></Script>
         </form>
     )
 }

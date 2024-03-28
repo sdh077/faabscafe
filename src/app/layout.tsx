@@ -9,6 +9,7 @@ import Alert from '@/components/Alert'
 import "aos/dist/aos.css";
 import { AOSInit } from '@/components/Aos'
 import './page.module.css'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 declare global {
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Alert />
           </Providers>
         </Flowbite>
+        <Script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></Script>
       </body>
     </html>
   )

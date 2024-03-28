@@ -18,11 +18,11 @@ const getCategory = async () => {
     return data
 }
 const getGoods = async (category?: string): Promise<Goods[]> => {
-
+    const q = supabase.from('goods').select()
     const { data, error } =
         category ?
-            await supabase.from('goods').select().eq('category_id', category).returns<Goods[]>() :
-            await supabase.from('goods').select().returns<Goods[]>();
+            await q.eq('category_id', category).returns<Goods[]>() :
+            await q.returns<Goods[]>();
     return data ?? []
 }
 export default async function Bean({
