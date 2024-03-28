@@ -1,6 +1,6 @@
 'use server'
 
-import { supabase } from "@/lib/api"
+import { encriptPassword, supabase } from "@/lib/api"
 import sql from "@/lib/db"
 import { z } from 'zod'
 import crypto from "crypto";
@@ -28,8 +28,7 @@ export async function login(prevState: any, formData: FormData) {
       errors: validatedFields.error.flatten().fieldErrors,
     }
   }
-  const encryptedPassword = crypto.createHash("sha512").update(validatedFields.data.password).digest("base64");
-  console.log(encryptedPassword, validatedFields.data.password)
+  const encryptedPassword = encriptPassword(validatedFields.data.password)
   const users = await sql`
     select
       *
@@ -51,4 +50,11 @@ export async function login(prevState: any, formData: FormData) {
   const callback = formData.get('callback') ?? ''
   if (callback && typeof callback === 'string') redirect(callback)
   else redirect(`/`)
+}
+
+export async function logout() {
+  cookies().delete('token')
+  cookies().delete('id')
+  cookies().delete('name')
+  redirect(`/`)
 }

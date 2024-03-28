@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { login } from './actions'
 import sql from '@/lib/db'
 import { useFormState } from 'react-dom'
+import { useState } from 'react'
+import Spinner from '@/components/spinner'
 const initialState = {
   message: '',
   errors: ''
@@ -17,11 +19,16 @@ export default function SignIn({
   params: { id: string }
   searchParams: { [key: string]: string | undefined }
 }) {
+  const [load, setLoad] = useState(false)
   const [state, formAction] = useFormState(login, initialState)
   return (
     <>
       <div className="max-w-sm mx-auto mt-20 my-60">
-        <form action={formAction}>
+        <form action={async (payload) => {
+          setLoad(true)
+          formAction(payload)
+          setLoad(false)
+        }}>
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="email">
@@ -39,7 +46,7 @@ export default function SignIn({
             </div>
           </div>
           {typeof state?.errors === 'string' ? state?.errors : ''}
-          <Button className="w-full mt-2" type='submit'>로그인</Button>
+          <Button className="w-full mt-2" type='submit'>{load ? <Spinner /> : '로그인'}</Button>
           <input type='hidden' name='callback' value={searchParams.path} />
         </form>
         <div className="flex flex-wrap my-4 text-sm text-gray-500 gap-3 justify-center">

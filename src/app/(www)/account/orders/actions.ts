@@ -1,5 +1,6 @@
 import { Orders } from "@/interface/orders"
 import { supabase } from "@/lib/api"
+import { redirect } from "next/navigation"
 
 export async function cancelReturnAction(FormData: FormData) {
     const id = FormData.get('id')
@@ -21,4 +22,6 @@ export async function cancelReturnAction(FormData: FormData) {
     ]
 
     await supabase.from('orders').update(order).eq('id', id)
+    redirect('/account/cancel-return')
 }
+

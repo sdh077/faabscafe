@@ -10,7 +10,7 @@ import People from './people'
 import { supabase } from '@/lib/api'
 import Timeline from './timeline'
 import { IHistory } from '@/interface/history'
-
+import History from './history'
 const getHistory = async () => {
     const { data, error } = await supabase.from('history').select().returns<IHistory[]>()
     return data ?? [];
@@ -20,6 +20,7 @@ export default async function About() {
     const historys = await getHistory()
     return (
         <div className=''>
+            <History historys={historys} />
             <Container>
                 <div className='my-12'>
                     <Image
@@ -46,7 +47,7 @@ export default async function About() {
                     />
                 </div>
             </Container>
-            <Timeline historys={historys} />
+            {/* <Timeline historys={historys} /> */}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { Address } from "@/interface/user"
 
-function ShippingLine({ address }: { address: Address }) {
+export function ShippingLine({ address }: { address: Address }) {
   return (
     <section className="border p-4">
       <ul>

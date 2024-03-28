@@ -12,18 +12,19 @@ const initialState = {
     message: '',
     errors: ''
 }
-const SelectOption = ({ title }: { title: string }) => {
+const SelectOption = ({ title, id }: { title: string, id: string }) => {
     const [count, setCount] = useState(1)
     return (
-        <div>
+        <div className='my-4'>
             {title}
-            <input name='[option]' value={title + '/' + count} type='hidden'></input>
+            <input name='[option]' value={`${id}-${count}`} type='hidden'></input>
             <TextInput type='number' value={count} onChange={e => setCount(Number(e.target.value))} />
         </div>
     )
 }
 export default function Goods({ info }: { info: GoodsItem }) {
-    const [options, setOptions] = useState(info.goods_option.map(o => ({ ...o, select: 0 })))
+    const initvalue = info.goods_option.map(o => ({ ...o, select: 0 }))
+    const [options, setOptions] = useState(initvalue)
     const [selectItems, setSelectItems] = useState<{ id: number[], name: string, price: number }[]>([])
     const pathname = usePathname()
     const [state, formAction] = useFormState(shopAction, initialState)
@@ -40,7 +41,11 @@ export default function Goods({ info }: { info: GoodsItem }) {
                     name: addOption.map(o => o?.name).join(', '),
                     price: addOption.map(o => o?.price).reduce((a, b) => (a ?? 0) + (b ?? 0), 0) ?? 0
                 }
-                if (!selectItems.map(i => i.name).includes(newSelect.name)) setSelectItems([...selectItems, newSelect])
+                console.log(newSelect)
+                if (!selectItems.map(i => i.name).includes(newSelect.name)) {
+                    setSelectItems([...selectItems, newSelect])
+                    setOptions(initvalue)
+                }
             }
         }
     }, [options])
@@ -83,12 +88,13 @@ export default function Goods({ info }: { info: GoodsItem }) {
                             <div>green {info.green}</div>
                         </li>
                     </ul>
+                    <input type='hidden' value={info.id} name='goods_id' />
                     {options.map(option =>
                         <div className="mb-5" key={option.id}>
                             <div className='w-1/5'>
                                 {option.title}
                             </div>
-                            <Select id="chBasic" className="form-control w-4/5" onChange={(e) => selectOption(e, option)} name={option.id.toString()}>
+                            <Select id="chBasic" className="form-control w-4/5" value={option.select} onChange={(e) => selectOption(e, option)} name={option.id.toString()}>
                                 <option value="">
                                     옵션을 선택해주세요
                                 </option>
@@ -99,7 +105,7 @@ export default function Goods({ info }: { info: GoodsItem }) {
                         </div>
                     )}
                     {selectItems.map((selectItem, index) =>
-                        <SelectOption title={selectItem.name} key={selectItem.name} />
+                        <SelectOption title={selectItem.name} id={selectItem.id.join('/')} key={selectItem.name} />
                     )}
                     <div className='flex gap-2'>
                         <Button type='submit' name='action' color='red' size={'md'} value="buy">바로 구매하기</Button>
@@ -116,7 +122,7 @@ export default function Goods({ info }: { info: GoodsItem }) {
                         alt=""
                         src={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/beans/${info.img}`}
                         width={960}
-                        height={1140}
+                        height={1000}
                     />}
                 </div>
             </div>

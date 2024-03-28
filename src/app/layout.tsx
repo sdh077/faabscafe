@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 declare global {
   interface Window {
     IMP: any
+    daum: any
   }
 }
 export const metadata: Metadata = {
@@ -38,7 +39,6 @@ export default function RootLayout({
           </Providers>
         </Flowbite>
       </body>
-      {/* <Script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" /> */}
     </html>
   )
 }

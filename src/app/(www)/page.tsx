@@ -33,9 +33,9 @@ export default async function Home() {
         {data?.map(category =>
           <div key={category.id} className='my-10'>
             <h4 className='mb-10'>{category.title}</h4>
-            <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-2 lg:grid-cols-4 '>
               {category.goods?.map(goods =>
-                <CardComponent key={goods.id} img={goods.img} title={goods.name} content={goods.flavor} link={`/shop/${goods.id}`} />
+                <CardComponent key={goods.id} img={goods.img} title={goods.name} content={goods.flavor} link={`/shop/${goods.id}`} flavor={goods.flavor} />
               )}
             </div>
           </div>)}

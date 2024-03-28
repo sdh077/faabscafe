@@ -23,15 +23,15 @@ const navbarTheme: FlowbiteNavbarTheme = {
     base: 'flex items-center',
   },
   collapse: {
-    base: 'w-full md:block md:w-auto',
-    list: 'mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium',
+    base: 'md:block w-[80%]',
+    list: 'mt-4 flex flex-row md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium',
     hidden: {
       on: 'hidden',
       off: '',
     },
   },
   link: {
-    base: 'block py-2 pr-4 pl-3 md:p-0 flex content-baseline',
+    base: ' block py-2 pr-4 pl-3 md:p-0 flex content-baseline',
     active: {
       on: 'bg-cyan-700 text-white dark:text-white md:bg-transparent md:text-cyan-700',
       off: 'border-b border-gray-100  text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-cyan-700 md:dark:hover:bg-transparent md:dark:hover:text-white',

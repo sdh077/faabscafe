@@ -62,8 +62,13 @@ export default function CancelReturnPanel({ orders }: { orders: Orders[] }) {
               <li key={order.id} className="flex justify-between items-center py-3 border-b border-slate-200 dark:border-slate-700">
                 {/* Left */}
                 <div>
-                  <div className="text-slate-800 dark:text-slate-100 font-semibold">[{order.status.name}] {order.product_title}</div>
-                  <div className="text-sm">{order.product_option}, {order.price}원</div>
+                  [{order.status.name}]
+                  {order.orders_item.map(item =>
+                    <div key={item.id} className='flex'>
+                      <div className="text-slate-800 dark:text-slate-100 font-semibold mr-4">{item.product_title}</div>
+                      <div className="text-sm">{item.product_option}, {item.price}원</div>
+                    </div>
+                  )}
                 </div>
                 {/* Right */}
                 <div className=" items-center ml-4">

@@ -35,7 +35,7 @@ export const NavbarLink: FC<NavbarLinkProps> = ({
   const theme = mergeDeep(rootTheme.link, customTheme);
 
   return (
-    <li className='flex items-center'>
+    <li className='flex items-center w-full'>
       <Component
         className={twMerge(
           theme.base,

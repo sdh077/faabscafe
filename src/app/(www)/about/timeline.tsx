@@ -12,7 +12,7 @@ export default function Timeline({ historys }: { historys: IHistory[] }) {
     })
     return (
         <Container>
-            <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper mt-16">
+            <Swiper className="mySwiper mt-16">
                 {Object.entries(arr).map(([key, value]) =>
                     <SwiperSlide key={key}>
                         <div className="swiper-slide swiper-slide-active">

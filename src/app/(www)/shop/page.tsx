@@ -58,7 +58,7 @@ export default async function Bean({
                 </div>
                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
                     {goods?.map(item =>
-                        <CardComponent key={item.id} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
+                        <CardComponent key={item.id} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
                     )}
                 </div>
             </Container>

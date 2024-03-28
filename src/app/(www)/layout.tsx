@@ -4,6 +4,7 @@ import TransitionComponent from '@/components/Transition'
 import React from 'react'
 import { cookies } from 'next/headers'
 import { Navs } from '@/interface/nav'
+import { Spinner } from 'flowbite-react'
 
 
 export default function layout({
