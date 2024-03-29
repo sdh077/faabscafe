@@ -10,11 +10,13 @@ import { usePathname } from 'next/navigation'
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink } from '@/ui/Navbar';
 import { NavItem } from '@/interface/nav';
 import { logout } from '@/app/(www)/(auth)/signin/actions';
+import clsx from 'clsx';
 export default function Nav({ name, brand, navItems }: { name: string, brand: { img?: string, title: string }, navItems: NavItem[] }) {
     const pathname = usePathname()
+    const main = pathname === '/full' ? 'fixed w-full top-0 bg-transparent' : 'w-full top-0 bg-transparent'
 
     return (
-        <Navbar className='fixed w-full top-0' fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
+        <Navbar className={clsx(main)} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
             <NavbarBrand href="/">
                 {brand?.img && <img src={brand.img} className="mr-3 h-[20px] w-[205px] sm:h-[20px]" alt="Flowbite React Logo" />}
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{brand.title}</span>
@@ -58,6 +60,9 @@ export default function Nav({ name, brand, navItems }: { name: string, brand: { 
                             </DropdownItem >
                             <DropdownItem href={`/account/orders`} >
                                 주문목록
+                            </DropdownItem >
+                            <DropdownItem href={`/admin`} >
+                                납품관리
                             </DropdownItem >
                             <DropdownItem onClick={() => logout()} >
                                 로그아웃

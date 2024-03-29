@@ -4,16 +4,16 @@
 import { motion } from "framer-motion";
 
 
-export default function CardComponent({ id, img, title, content, flavor, link }: { id: number, img: string, title: string, content: string, flavor: string, link?: string }) {
+export default function CardComponent({ id, img, title, content, flavor, link, description }: { id: number, img: string, title: string, content: string, flavor: string, link?: string, description: string }) {
     return (
-        <a href={`/shop/${id}`} className="card-hover overflow-hidden h-[440px] border-2">
+        <a href={`/shop/${id}`} className="card-hover overflow-hidden h-[440px] ">
+            {/* border-[1px] mt-[-1px] mr-[-1px]"> */}
             <motion.div className="overflow-hidden relative mb-4"
                 whileHover={{
-                    scale: 1.1,
+                    scale: 1.05,
                     transition: { duration: 0.3 },
                 }}
             >
-
                 <div
                     style={{
                         minHeight: `300px`,
@@ -25,8 +25,9 @@ export default function CardComponent({ id, img, title, content, flavor, link }:
                 />
             </motion.div>
             <div className="p-2">
-                <p className="mb-1">{title}</p>
-                <span className="text-body-secondary">{content}</span>
+                <div className="text-[11px] color-primary opacity-[0.7]">{description}</div>
+                <p className="mb-1 text-[14px]">{title}</p>
+                <span className="text-body-secondary text-[12px]">{content}</span>
             </div>
         </a>
 

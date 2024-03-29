@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
+.outer {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.outer::-webkit-scrollbar {
+    display: none;
+}
+
+.inner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    width: 100%;
+    position: relative;
+}
+
+.divider {
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+}
+
+:root {
+    scroll-behavior: auto
+}

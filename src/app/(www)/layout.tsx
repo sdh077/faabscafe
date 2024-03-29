@@ -1,10 +1,8 @@
 import FooterComponent from '@/components/Footer'
 import Nav from '@/components/Nav'
-import TransitionComponent from '@/components/Transition'
 import React from 'react'
 import { cookies } from 'next/headers'
 import { Navs } from '@/interface/nav'
-import { Spinner } from 'flowbite-react'
 
 
 export default function layout({
@@ -25,9 +23,9 @@ export default function layout({
             name: 'Contact',
             link: 'contact',
         }, {
-            //     name: 'Order',
-            //     link: 'order',
-            // }, {
+            name: 'Wholesale',
+            link: 'wholesale',
+        }, {
             name: 'Archive',
             link: 'board',
             // children: [
@@ -39,17 +37,17 @@ export default function layout({
         },
     ]
     return (
-        <TransitionComponent>
+        <div>
             <Nav
                 name={name?.value ?? ''}
                 brand={{
                     title: 'FAABS COFFEE'
                 }}
                 navItems={navItems} />
-            <div className='mt-20'>
+            <div>
                 {children}
             </div>
             <FooterComponent navItems={navItems} />
-        </TransitionComponent>
+        </div>
     )
 }

@@ -2,10 +2,10 @@ import { StaticImageData } from 'next/image'
 import React from 'react'
 import Image from "next/image";
 
-export default function Hero({ height = 500, bgImg, color, children }: { height?: number, bgImg?: string, color?: string, children?: React.ReactNode }) {
+export default function Hero({ height = '100vh', bgImg, color, children }: { height?: string, bgImg?: string, color?: string, children?: React.ReactNode }) {
   return (
     <div className='w-full relative' style={{
-      minHeight: `100vh`,
+      minHeight: height,
       backgroundImage: `url('${bgImg}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50%',

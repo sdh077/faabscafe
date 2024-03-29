@@ -21,8 +21,8 @@ const getGoods = async (category?: string): Promise<Goods[]> => {
     const q = supabase.from('goods').select()
     const { data, error } =
         category ?
-            await q.eq('category_id', category).returns<Goods[]>() :
-            await q.returns<Goods[]>();
+            await q.eq('category_id', category).order('id', { ascending: false }).returns<Goods[]>() :
+            await q.order('id', { ascending: false }).returns<Goods[]>();
     return data ?? []
 }
 export default async function Bean({
@@ -38,7 +38,7 @@ export default async function Bean({
     return (
         <div className=''>
             <Container>
-                <div className="mb-8 overflow-hidden text-[#1C1C1B]" style={{ borderBottom: '1px solid #d0d0d0' }}>
+                <div className="overflow-hidden text-[#1C1C1B]" style={{ borderBottom: '1px solid #d0d0d0' }}>
                     <nav className="menu">
                         <ul className='flex items-center between-justify'>
                             <li className='relative text-xl p-8'>
@@ -56,9 +56,9 @@ export default async function Bean({
                         </ul>
                     </nav>
                 </div>
-                <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
                     {goods?.map(item =>
-                        <CardComponent key={item.id} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
+                        <CardComponent key={item.id} description={item.description} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
                     )}
                 </div>
             </Container>
