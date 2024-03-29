@@ -10,7 +10,7 @@ import { cookies } from 'next/headers'
 
 export const revalidate = 0
 
-export async function getOrders() {
+async function getOrders() {
   const userId = cookies().get('uid')?.value
   const { data, error } = await supabase.from('orders').select(
     `*,

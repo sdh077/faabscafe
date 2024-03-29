@@ -25,7 +25,7 @@ export default function Slide({ images }: { images: { name: string, id: string }
     >
       {images.map(image =>
         <SwiperSlide key={image.id}>
-          <Hero bgImg={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/main/${image.name}`} height={600}>
+          <Hero bgImg={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/main/${image.name}`} height={'600px'}>
           </Hero>
         </SwiperSlide>
       )}

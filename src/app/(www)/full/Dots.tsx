@@ -1,4 +1,4 @@
-const Dot = ({ num, currentPage }) => {
+const Dot = ({ num, currentPage }: { num: number, currentPage: number }) => {
     return (
         <div
             style={{
@@ -14,7 +14,7 @@ const Dot = ({ num, currentPage }) => {
     );
 };
 
-const Dots = ({ currentPage }) => {
+const Dots = ({ currentPage }: { currentPage: number }) => {
     return (
         <div style={{ position: "fixed", top: "50%", right: 100, zIndex: 999 }}>
             <div
