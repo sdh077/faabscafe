@@ -4,7 +4,7 @@ import {
     Dropdown,
     DropdownItem,
 } from 'flowbite-react';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { usePathname } from 'next/navigation'
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink } from '@/ui/Navbar';
@@ -13,7 +13,7 @@ import { logout } from '@/app/(www)/(auth)/signin/actions';
 import clsx from 'clsx';
 export default function Nav({ name, brand, navItems }: { name: string, brand: { img?: string, title: string }, navItems: NavItem[] }) {
     const pathname = usePathname()
-    const main = pathname === '/full' ? 'fixed w-full top-0 bg-transparent' : 'w-full top-0 bg-transparent'
+    const main = pathname === '/full' ? 'fixed w-full top-0 bg-transparent' : 'sticky w-full top-0 bg-white'
 
     return (
         <Navbar className={clsx(main)} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >

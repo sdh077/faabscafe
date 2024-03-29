@@ -6,8 +6,25 @@ import { motion } from 'framer-motion';
 import { WaveComponent } from './wave/app'
 import Video from './video';
 
+const First = () => {
+    const [position, setPosition] = useState({ x: 0, y: 0 })
+    const [clipPath, setClipPath] = useState(`circle(20px at 50% 50%)`)
+
+    return (
+        <div
+            className='bg-primary text-primary'
+            onMouseMove={e => setClipPath(`circle(20px at ${e.clientX / e.pageX * 100}% ${e.clientY / e.pageY * 100}%)`)}
+            style={{
+                clipPath,
+                WebkitTextFillColor: '#333'
+            }}
+        >
+            {'clipPathclipPathclipPathclipPathclipPath'}
+        </div >
+    )
+}
+
 export default function Page() {
-    const [position, setPosition] = useState([0, 0])
     const [currentPage, setCurrentPage] = useState(1);
     const [throttle, setThrottle] = useState(false);
     const [direction, setDirection] = useState('')
@@ -54,7 +71,7 @@ export default function Page() {
         };
     }, [throttle]);
     return (
-        <main>
+        <main >
             <canvas style={{
                 width: '100%',
                 height: '100%',
@@ -67,13 +84,7 @@ export default function Page() {
                 <Dots currentPage={currentPage} />
                 <div className="inner ">
                     {[
-                        <div
-                            key={1}
-                            style={{
-                                clipPath: 'circle(300px at 50% 50%)'
-                            }}>
-                            1hjghgjhghgi
-                        </div>
+                        <First key={1} />
                         , <Video key={2} src="/video/faabsvideo.mp4" />,
                         <div key={3}></div>
                         , <Video key={4} src="/video/officeloop.mp4" />][currentPage]}
