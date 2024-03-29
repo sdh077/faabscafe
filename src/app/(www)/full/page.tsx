@@ -67,12 +67,16 @@ export default function Page() {
                 <Dots currentPage={currentPage} />
                 <div className="inner ">
                     {[
-                        <div style={{
-                            clipPath: 'circle(300px at 50% 50%)'
-                        }}>
+                        <div
+                            key={1}
+                            style={{
+                                clipPath: 'circle(300px at 50% 50%)'
+                            }}>
                             1hjghgjhghgi
                         </div>
-                        , <Video src="/video/faabsvideo.mp4" />, 12, <Video src="/video/officeloop.mp4" />][currentPage]}
+                        , <Video key={2} src="/video/faabsvideo.mp4" />,
+                        <div key={3}></div>
+                        , <Video key={4} src="/video/officeloop.mp4" />][currentPage]}
                 </div>
             </div>
         </main>
