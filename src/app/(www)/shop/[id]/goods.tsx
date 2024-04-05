@@ -108,7 +108,7 @@ export default function Goods({ info }: { info: GoodsItem }) {
                         <SelectOption title={selectItem.name} id={selectItem.id.join('/')} key={selectItem.name} />
                     )}
                     <div className='flex gap-2'>
-                        <Button type='submit' name='action' color='red' size={'md'} value="buy">바로 구매하기</Button>
+                        <Button type='submit' name='action' size={'md'} value="buy">바로 구매하기</Button>
                         <Button type='submit' name='action' color='success' size={'md'} value="add-to-cart">장바구니</Button>
                     </div>
                     <i className="bx bxs-chevron-right">

@@ -14,7 +14,7 @@ export function GoodsLine({ goods }: { goods: any }) {
             </a>
             <div className="grow">
                 <a href="#0">
-                    <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">{goods.name}</h3>
+                    <h3 className="text-lg font-semibold text-primary-800 dark:text-primary mb-1">{goods.name}</h3>
                 </a>
                 <div className="text-sm mb-2">{goods.cart_item.map((item: any) => item.goods_option_item.name).join(', ')} - {goods.count}개</div>
                 {/* Product meta */}
@@ -37,14 +37,14 @@ export function GoodsLine({ goods }: { goods: any }) {
 
 export default function GoodsPanel({ goods }: { goods: any[] }) {
     return (
-        <div className="bg-white w-full dark:bg-slate-800 shadow-md rounded border border-slate-200 dark:border-slate-700 p-5">
+        <div className="bg-white w-full dark:bg-primary shadow-md rounded border border-primary dark:border-slate-700 p-5">
             {/* Header */}
             <header className="flex justify-between items-start space-x-3 mb-3">
                 {/* User */}
                 <div className="flex items-start space-x-3">
                     <div>
                         <div className="leading-tight">
-                            <a className="text-sm font-semibold text-slate-800 dark:text-slate-100" href="#0">
+                            <a className="text-sm font-semibold text-primary dark:text-primary" href="#0">
                                 주문상품
                             </a>
                         </div>
@@ -52,7 +52,7 @@ export default function GoodsPanel({ goods }: { goods: any[] }) {
                 </div>
             </header>
             {/* Body */}
-            <div className="text-sm text-slate-800 dark:text-slate-100 space-y-2 mb-5">
+            <div className="text-sm text-primary dark:text-primary space-y-2 mb-5">
                 {goods.map(g =>
                     <GoodsLine goods={g} key={g.id} />
                 )}

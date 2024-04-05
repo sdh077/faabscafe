@@ -4,16 +4,18 @@ import PostsList from './posts-list'
 import { supabase } from '@/lib/api'
 import { IDocument } from '@/interface/board'
 import PostsNav from './posts-nav'
+import Paginantion from '@/components/pagination'
 
 
 const getBoard = async () => {
     const { data, error } = await supabase.from('board').select().eq('use_yn', true).returns<IDocument[]>()
     return data ?? []
 }
-const getDocument = async (board: string | undefined) => {
-    const docuQuery = supabase.from('document').select()
-    const { data, error } = await (board ? docuQuery.eq('board_id', board) : docuQuery).returns<IDocument[]>()
-    return data ?? []
+const getDocument = async (board: string | undefined, page: number) => {
+    const docuQuery = supabase.from('document').select('*', { count: 'exact' })
+    return await (board ? docuQuery.eq('board_id', board) : docuQuery)
+        .range((page - 1) * 10, page * 10)
+        .returns<IDocument[]>()
 }
 
 export default async function page({
@@ -24,12 +26,17 @@ export default async function page({
     searchParams: { [key: string]: string | undefined }
 }) {
     const boards = await getBoard();
-    const posts = await getDocument(searchParams.type);
+    const posts = await getDocument(searchParams.type, Number(searchParams.page ?? '1'));
+    if (!posts.data) return <></>
+    const totalPages = Math.floor((posts.count ?? 0) / 9) + 1
     return (
-        <section className="relative mt-32">
+        <section className="relative pt-8 bg-[#F8F9FA]">
             <Container>
-                <PostsNav boards={boards} />
-                <PostsList posts={posts} />
+                {/* <PostsNav boards={boards} /> */}
+                <PostsList posts={posts.data} />
+                <div className='mx-auto'>
+                    <Paginantion page={Number(searchParams.page ?? '1')} totalPages={totalPages} />
+                </div>
             </Container>
         </section>
     )

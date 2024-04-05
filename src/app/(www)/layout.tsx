@@ -14,16 +14,16 @@ export default function layout({
     const name = cookieStore.get('name')
     const navItems: Navs[] = [
         {
-            name: 'About',
+            name: '소개',
             link: 'about',
         }, {
-            name: 'Shop',
+            name: 'SHOP',
             link: 'shop',
         }, {
-            name: 'Contact',
-            link: 'contact',
-        }, {
-            name: 'Wholesale',
+            //     name: 'Contact',
+            //     link: 'contact',
+            // }, {
+            name: '도매/파트너십',
             link: 'wholesale',
         }, {
             name: 'Archive',

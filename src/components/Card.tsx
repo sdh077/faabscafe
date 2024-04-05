@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 
 
-export default function CardComponent({ id, img, title, content, flavor, link, description }: { id: number, img: string, title: string, content: string, flavor: string, link?: string, description: string }) {
+export default function CardComponent({ id, img, title, content, flavor, link, description }: { id: number, img: string | File, title: string, content: string, flavor: string, link?: string, description: string }) {
     return (
         <a href={`/shop/${id}`} className="card-hover overflow-hidden h-[440px] ">
             {/* border-[1px] mt-[-1px] mr-[-1px]"> */}
@@ -25,9 +25,9 @@ export default function CardComponent({ id, img, title, content, flavor, link, d
                 />
             </motion.div>
             <div className="p-2">
-                <div className="text-[11px] color-primary opacity-[0.7]">{description}</div>
                 <p className="mb-1 text-[14px]">{title}</p>
-                <span className="text-body-secondary text-[12px]">{content}</span>
+                <div className="text-[11px] color-primary opacity-[0.7] text-primary">{description}</div>
+                <span className="text-body-secondary text-[12px]">13000원</span>
             </div>
         </a>
 

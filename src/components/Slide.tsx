@@ -4,11 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/css';
+// import 'swiper/css';
 import '@styles/swiper.css'
-import img from '@public/faabs_img/main1.png'
-import mimg from '@public/faabs_img/main2.jpeg'
-import img2 from '@public/faabs_img/bg1.jpg'
 import Hero from './Hero';
 
 export default function Slide({ images }: { images: { name: string, id: string }[] }) {

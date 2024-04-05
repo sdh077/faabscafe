@@ -4,7 +4,7 @@ const button: FlowbiteButtonTheme = {
   base: 'group flex items-stretch items-center justify-center p-0.5 min-w-20 text-center font-medium relative focus:z-10 focus:outline-none',
   fullSized: 'w-full',
   color: {
-    default: 'text-gray-900 bg-gray-200 border border-transparent enabled:hover:bg-gray-300 focus:ring-gray-300',
+    default: 'text-gray-900 bg-primary border border-transparent enabled:hover:bg-primary focus:ring-primary',
     dark: 'text-white bg-gray-800 border border-transparent enabled:hover:bg-gray-900 focus:ring-gray-300',
     blue: 'text-white bg-blue-700 border border-transparent enabled:hover:bg-blue-800 focus:ring-blue-300',
     red: 'text-white bg-red-700 border border-transparent enabled:hover:bg-red-400 focus:ring-red-300 ',
@@ -12,7 +12,7 @@ const button: FlowbiteButtonTheme = {
     purple: 'text-white bg-purple-700 border border-transparent enabled:hover:bg-purple-800 focus:ring-purple-300 ',
     gray: 'text-gray-900 bg-gray-200 border border-transparent enabled:hover:bg-gray-400 focus:ring-gray-300',
     failure: 'text-white bg-red-700 border border-transparent enabled:hover:bg-red-800 focus:ring-red-300',
-    info: 'text-white bg-cyan-800 border border-transparent enabled:hover:bg-cyan-900 focus:ring-cyan-300',
+    info: 'text-white bg-primary border border-transparent enabled:hover:bg-primary focus:ring-primary',
     light: 'text-gray-900 bg-white border border-gray-300 enabled:hover:bg-gray-100 focus:ring-cyan-300 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:enabled:hover:bg-gray-700 dark:enabled:hover:border-gray-700 dark:focus:ring-gray-700',
     success: 'text-white bg-green-700 border border-transparent enabled:hover:bg-green-800 focus:ring-green-300 dark:bg-green-600 dark:enabled:hover:bg-green-700 dark:focus:ring-green-800',
     warning: 'text-white bg-yellow-400 border border-transparent enabled:hover:bg-yellow-500 focus:ring-yellow-300 dark:focus:ring-yellow-900',

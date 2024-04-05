@@ -9,20 +9,20 @@ export default function CartItems() {
     <>
       <ul>
         {/* Cart item */}
-        <li className="sm:flex items-center py-6 border-b border-slate-200 dark:border-slate-700">
+        <li className="sm:flex items-center py-6 border-b border-primary dark:border-primary">
           <a className="block mb-4 sm:mb-0 mr-5 md:w-32 xl:w-auto shrink-0" href="#0">
             <Image className="rounded-sm" src={Related01} width={200} height={142} alt="Product 01" />
           </a>
           <div className="grow">
             <a href="#0">
-              <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">The Complete Front-End Development Course!</h3>
+              <h3 className="text-lg font-semibold text-primary dark:text-primary mb-1">The Complete Front-End Development Course!</h3>
             </a>
             <div className="text-sm mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</div>
             {/* Product meta */}
             <div className="flex flex-wrap justify-between items-center">
               {/* Rating and price */}
               <div className="flex flex-wrap items-center space-x-2 mr-2">
-                <div className="text-slate-400 dark:text-slate-600">·</div>
+                <div className="text-primary dark:text-primary">·</div>
                 {/* Price */}
                 <div>
                   <div className="inline-flex text-sm font-medium text-emerald-600 text-center px-2 py-0.5">$89.00</div>
@@ -33,13 +33,13 @@ export default function CartItems() {
           </div>
         </li>
         {/* Cart item */}
-        <li className="sm:flex items-center py-6 border-b border-slate-200 dark:border-slate-700">
+        <li className="sm:flex items-center py-6 border-b border-primary dark:border-primary">
           <a className="block mb-4 sm:mb-0 mr-5 md:w-32 xl:w-auto shrink-0" href="#0">
             <Image className="rounded-sm" src={Related02} width={200} height={142} alt="Product 02" />
           </a>
           <div className="grow">
             <a href="#0">
-              <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">Web Development Ultimate Course 2021</h3>
+              <h3 className="text-lg font-semibold text-primary dark:text-primary mb-1">Web Development Ultimate Course 2021</h3>
             </a>
             <div className="text-sm mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</div>
             {/* Product meta */}
@@ -76,7 +76,7 @@ export default function CartItems() {
                     </button>
                     <button>
                       <span className="sr-only">5 stars</span>
-                      <svg className="w-4 h-4 fill-current text-slate-300 dark:text-slate-600" viewBox="0 0 16 16">
+                      <svg className="w-4 h-4 fill-current text-slate-300 dark:text-primary" viewBox="0 0 16 16">
                         <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
                       </svg>
                     </button>
@@ -84,7 +84,7 @@ export default function CartItems() {
                   {/* Rate */}
                   <div className="inline-flex text-sm font-medium text-amber-600">4.2</div>
                 </div>
-                <div className="text-slate-400 dark:text-slate-600">·</div>
+                <div className="text-primary dark:text-primary">·</div>
                 {/* Price */}
                 <div>
                   <div className="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">$89.00</div>
@@ -95,13 +95,13 @@ export default function CartItems() {
           </div>
         </li>
         {/* Cart item */}
-        <li className="sm:flex items-center py-6 border-b border-slate-200 dark:border-slate-700">
+        <li className="sm:flex items-center py-6 border-b border-primary dark:border-primary">
           <a className="block mb-4 sm:mb-0 mr-5 md:w-32 xl:w-auto shrink-0" href="#0">
             <Image className="rounded-sm" src={Related03} width={200} height={142} alt="Product 03" />
           </a>
           <div className="grow">
             <a href="#0">
-              <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">Full-Stack JavaScript Course!</h3>
+              <h3 className="text-lg font-semibold text-primary dark:text-primary mb-1">Full-Stack JavaScript Course!</h3>
             </a>
             <div className="text-sm mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</div>
             {/* Product meta */}
@@ -138,7 +138,7 @@ export default function CartItems() {
                     </button>
                     <button>
                       <span className="sr-only">5 stars</span>
-                      <svg className="w-4 h-4 fill-current text-slate-300 dark:text-slate-600" viewBox="0 0 16 16">
+                      <svg className="w-4 h-4 fill-current text-slate-300 dark:text-primary" viewBox="0 0 16 16">
                         <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
                       </svg>
                     </button>
@@ -146,7 +146,7 @@ export default function CartItems() {
                   {/* Rate */}
                   <div className="inline-flex text-sm font-medium text-amber-600">4.2</div>
                 </div>
-                <div className="text-slate-400 dark:text-slate-600">·</div>
+                <div className="text-primary dark:text-primary">·</div>
                 {/* Price */}
                 <div>
                   <div className="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">$89.00</div>

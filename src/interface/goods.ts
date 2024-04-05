@@ -1,5 +1,5 @@
 export default interface Goods {
-    id: number,
+    id: number;
     name: string;
     green: string;
     flavor: string;
@@ -10,7 +10,9 @@ export default interface Goods {
     category_id: number;
     description: string;
     shipping_id: number;
-    img: string;
+    img: string | File;
+    price: number;
+    type: 'PERSON' | 'BUISNESS'
     goods_option: GoodsOption[]
 }
 
@@ -23,4 +25,15 @@ export interface GoodsOptionItem {
     id: number
     name: string
     price: number
+}
+export type Wholesale = Goods & { count: number }
+export interface WholesaleOrder {
+    id: number;
+    created_at: string;
+    price: number;
+    address_id: number;
+    status_id: number;
+    user_id: number;
+    goods: Goods[]
+    paid: boolean
 }

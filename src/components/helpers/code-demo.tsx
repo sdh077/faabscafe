@@ -202,7 +202,7 @@ function EditOnGithubButton({ githubSlug }: { githubSlug: string }) {
     <a
       href={href}
       rel="noreferrer nofollow noopener"
-      className="inline-flex w-fit items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:text-primary-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-700"
+      className="inline-flex w-fit items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 hover:bg-gray-100 hover:text-primary focus:text-primary focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-700"
     >
       <svg
         aria-hidden
@@ -229,7 +229,7 @@ function ToggleDarkModeButton({ isDarkMode, onClick }: ComponentProps<'button'> 
     <Tooltip content={isDarkMode ? 'Toggle light mode' : 'Toggle dark mode'}>
       <button
         onClick={onClick}
-        className="flex items-center rounded-lg border border-gray-200 bg-white p-2 text-xs font-medium text-gray-700 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-500"
+        className="flex items-center rounded-lg border border-gray-200 bg-white p-2 text-xs font-medium text-gray-700 hover:bg-gray-100 hover:text-primary focus:z-10 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-500"
       >
         <span className="sr-only">Toggle dark/light mode</span>
         {isDarkMode ? <HiSun className="h-4 w-4" /> : <HiMoon className="h-4 w-4" />}
@@ -242,7 +242,7 @@ function CopyToClipboardButton({ isJustCopied, onClick }: ComponentProps<'button
   return (
     <button
       onClick={onClick}
-      className="copy-to-clipboard-button flex items-center border-l border-gray-200 bg-gray-100 px-3 py-2 text-xs font-medium text-gray-600 hover:text-primary-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-white"
+      className="copy-to-clipboard-button flex items-center border-l border-gray-200 bg-gray-100 px-3 py-2 text-xs font-medium text-gray-600 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-white"
     >
       {isJustCopied ? (
         <BsCheckLg className="mr-2 h-4 w-4 text-green-500 dark:text-green-400" />
@@ -258,7 +258,7 @@ function CollapseExpandButton({ isExpanded, onClick }: ComponentProps<'button'> 
   return (
     <button
       onClick={onClick}
-      className="absolute bottom-0 left-0 z-1 w-full border-t border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+      className="absolute bottom-0 left-0 z-1 w-full border-t border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
     >
       {isExpanded ? 'Collapse code' : 'Expand code'}
     </button>

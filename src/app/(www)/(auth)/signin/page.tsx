@@ -61,7 +61,7 @@ export default function SignIn({
         <form>
           <div className="flex flex-wrap">
             <div className="w-full">
-              <Button className="w-full" href="/signup">파브스커피 회원가입</Button>
+              <Button className="w-full" href="/join">파브스커피 회원가입</Button>
             </div>
           </div>
         </form>

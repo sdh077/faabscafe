@@ -10,7 +10,7 @@ export type GoodsItem = Goods & {
 }
 const getInfo = async (id?: string): Promise<GoodsItem | null> => {
     const { data, error } =
-        await supabase.from('goods').select('*, goods_category(*), goods_option(*, goods_option_item(*))').eq('id', id)
+        await supabase.from('goods').select('*, goods_category(*), goods_option(*, goods_option_item(*))').eq('id', id).eq('type', 'PERSON')
     return (data && data?.length) ? data[0] : null
 }
 

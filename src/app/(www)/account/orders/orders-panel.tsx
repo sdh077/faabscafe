@@ -74,8 +74,16 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
     <div className="grow">
       <div className="px-5 py-1 mx-auto">
         <div className="flex flex-wrap justify-between">
+          <div className="flex items-center py-2 w-1/5 justify-center">
+            <div className="mr-5">
+              <div className="flex items-center justify-center">
+                <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{orders.length}</div>
+              </div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">전체</div>
+            </div>
+          </div>
           {/* Unique Visitors */}
-          <div className="flex items-center py-2 w-1/4 justify-center">
+          <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
               <div className="flex items-center justify-center">
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.before.length}</div>
@@ -84,7 +92,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
             </div>
           </div>
           {/* Total Pageviews */}
-          <div className="flex items-center py-2 w-1/4 justify-center">
+          <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
               <div className="flex items-center justify-center">
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.prepare.length}</div>
@@ -93,7 +101,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
             </div>
           </div>
           {/* Bounce Rate */}
-          <div className="flex items-center py-2 w-1/4 justify-center">
+          <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
               <div className="flex items-center justify-center">
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.shipping.length}</div>
@@ -102,7 +110,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
             </div>
           </div>
           {/* Visit Duration*/}
-          <div className="flex items-center  w-1/4 justify-center">
+          <div className="flex items-center  w-1/5 justify-center">
             <div>
               <div className="flex items-center justify-center">
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.completed.length}</div>

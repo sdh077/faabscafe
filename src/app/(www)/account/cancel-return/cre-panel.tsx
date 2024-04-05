@@ -8,7 +8,7 @@ import { Button } from 'flowbite-react'
 export default function CancelReturnPanel({ orders }: { orders: Orders[] }) {
   const searchParams = useSearchParams()
   const type = searchParams.get('type')
-  const normalOrder = {
+  const abnormalOrder = {
     'cancelRequest': orders.filter(order => order.status.name === '취소신청'),
     'cancelCompleted': orders.filter(order => order.status.name === '취소완료'),
     'returnRequest': orders.filter(order => order.status.name === '환불신청'),
@@ -16,31 +16,35 @@ export default function CancelReturnPanel({ orders }: { orders: Orders[] }) {
     'returnCompleted': orders.filter(order => order.status.name === '환불완료'),
   }
 
-  const [comments, setComments] = useState<boolean>(true)
-  const [messages, setMessages] = useState<boolean>(true)
-  const [mentions, setMentions] = useState<boolean>(false)
-
   return (
     <div className="grow">
       <div className="px-5 py-1 mx-auto">
         <div className="flex flex-wrap justify-between">
-          {/* Unique Visitors */}
           <div className="flex items-center py-2 w-1/4 justify-center">
-            <a href='/account/cancel-return-exchange?type=CANCEL'>
+            <a href='/account/cancel-return'>
               <div className="mr-5">
                 <div className="flex items-center justify-center">
-                  <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.cancelRequest.length + normalOrder.cancelCompleted.length}</div>
+                  <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{orders.length + abnormalOrder.cancelCompleted.length}</div>
+                </div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">전체</div>
+              </div>
+            </a>
+          </div>
+          <div className="flex items-center py-2 w-1/4 justify-center">
+            <a href='/account/cancel-return?type=CANCEL'>
+              <div className="mr-5">
+                <div className="flex items-center justify-center">
+                  <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{abnormalOrder.cancelRequest.length + abnormalOrder.cancelCompleted.length}</div>
                 </div>
                 <div className="text-sm text-slate-500 dark:text-slate-400">취소 주문</div>
               </div>
             </a>
           </div>
-          {/* Total Pageviews */}
           <div className="flex items-center py-2 w-1/4 justify-center">
-            <a href='/account/cancel-return-exchange?type=RETURN'>
+            <a href='/account/cancel-return?type=RETURN'>
               <div className="mr-5">
                 <div className="flex items-center justify-center">
-                  <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.return.length + normalOrder.returnRequest.length + normalOrder.returnCompleted.length}</div>
+                  <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{abnormalOrder.return.length + abnormalOrder.returnRequest.length + abnormalOrder.returnCompleted.length}</div>
                 </div>
                 <div className="text-sm text-slate-500 dark:text-slate-400">환불 주문</div>
               </div>

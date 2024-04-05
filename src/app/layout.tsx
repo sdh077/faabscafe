@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import { AOSInit } from '@/components/Aos'
 import './page.module.css'
 import Script from 'next/script'
+import '@/styles/swiper.css'
 
 const inter = Inter({ subsets: ['latin'] })
 declare global {

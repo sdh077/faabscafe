@@ -5,22 +5,27 @@ import Dots from './Dots';
 import { motion } from 'framer-motion';
 import { WaveComponent } from './wave/app'
 import Video from './video';
+import Hero from '@/components/Hero';
 
 const First = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const [clipPath, setClipPath] = useState(`circle(20px at 50% 50%)`)
 
     return (
-        <div
-            className='bg-primary text-primary'
-            onMouseMove={e => setClipPath(`circle(20px at ${e.clientX / e.pageX * 100}% ${e.clientY / e.pageY * 100}%)`)}
-            style={{
-                clipPath,
-                WebkitTextFillColor: '#333'
-            }}
-        >
+        <div>
             {'clipPathclipPathclipPathclipPathclipPath'}
-        </div >
+            <div
+                className='bg-primary text-primary w-full h-full'
+                onMouseMove={e => {
+                    setClipPath(`circle(100px at ${e.clientX / document.body.clientWidth * 100}% ${e.clientY / document.body.clientHeight * 100}%)`)
+                }}
+                style={{
+                    clipPath,
+                    WebkitTextFillColor: '#333'
+                }}
+            >
+            </div >
+        </div>
     )
 }
 
@@ -86,7 +91,7 @@ export default function Page() {
                     {[
                         <First key={1} />
                         , <Video key={2} src="/video/faabsvideo.mp4" />,
-                        <div key={3}></div>
+                        <img src='/faabs_img/full1.jpeg' className='w-full h-full' />
                         , <Video key={4} src="/video/officeloop.mp4" />][currentPage]}
                 </div>
             </div>

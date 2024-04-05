@@ -8,13 +8,14 @@ const customTableTheme: CustomFlowbiteTheme['table'] = {
   "body": {
     "base": "group/body",
     "cell": {
-      "base":" group-first/body:group-first/row:first:rounded-tl-lg group-first/body:group-first/row:last:rounded-tr-lg group-last/body:group-last/row:first:rounded-bl-lg group-last/body:group-last/row:last:rounded-br-lg px-1 py-3 h-10 text-center overflow-ellipsis overflow-hidden whitespace-nowrap "
+      "base": " px-1 py-3 h-10 text-center overflow-ellipsis overflow-hidden whitespace-nowrap "
+      //" group-first/body:group-first/row:first:rounded-tl-lg group-first/body:group-first/row:last:rounded-tr-lg group-last/body:group-last/row:first:rounded-bl-lg group-last/body:group-last/row:last:rounded-br-lg px-1 py-3 h-10 text-center overflow-ellipsis overflow-hidden whitespace-nowrap "
     }
   },
   "head": {
     "base": "group/head text-xs uppercase text-gray-700",
     "cell": {
-      "base": "group-first/head:first:rounded-tl-lg group-first/head:last:rounded-tr-lg px-1 py-3 h-10 text-center bg-slate-200 cursor-pointer"
+      "base": "group-first/head:first:rounded-tl-lg group-first/head:last:rounded-tr-lg px-1 py-3 h-10 text-center bg-slate-100 cursor-pointer"
     }
   },
   "row": {

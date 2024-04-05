@@ -1,6 +1,8 @@
 import CardComponent from '@/components/Card'
 import { Container } from '@/components/Container'
 import Hero from '@/components/Hero'
+import More from '@/components/more';
+import Paginantion from '@/components/pagination';
 import Goods from '@/interface/goods';
 import GoodsCategory from '@/interface/goods-category';
 import { supabase } from '@/lib/api';
@@ -14,18 +16,19 @@ const getCategory = async () => {
     `
     )
         .eq('use_main', true)
+        .eq('type', 'PERSON')
         .order('id', { ascending: true }).returns<GoodsCategory[]>();
     return data
 }
-const getGoods = async (category?: string): Promise<Goods[]> => {
-    const q = supabase.from('goods').select()
-    const { data, error } =
-        category ?
-            await q.eq('category_id', category).order('id', { ascending: false }).returns<Goods[]>() :
-            await q.order('id', { ascending: false }).returns<Goods[]>();
-    return data ?? []
+const getGoods = async (category: string, page: number) => {
+    const q = supabase.from('goods').select('*', { count: 'exact' }).eq('type', 'PERSON')
+    return await (category ?
+        q.eq('category_id', category) :
+        q)
+        .range((page - 1) * 9, (page) * 9 - 1)
+        .order('id', { ascending: false }).returns<Goods[]>();
 }
-export default async function Bean({
+export default async function Page({
     params,
     searchParams,
 }: {
@@ -33,8 +36,9 @@ export default async function Bean({
     searchParams: { [key: string]: string | undefined }
 }) {
     const categorys = await getCategory();
-    const goods = await getGoods(searchParams.category);
+    const goods = await getGoods(searchParams.category ?? '', Number(searchParams.page ?? '1'));
     const transition = 'py-8 px-4 hover:border-b-2 border-zinc-500'
+    const page = Number(searchParams.page ?? '1')
     return (
         <div className=''>
             <Container>
@@ -57,11 +61,12 @@ export default async function Bean({
                     </nav>
                 </div>
                 <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {goods?.map(item =>
+                    {goods.data?.map(item =>
                         <CardComponent key={item.id} description={item.description} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
                     )}
                 </div>
             </Container>
+            {goods.count && goods.count > 9 && <Paginantion page={page} totalPages={(goods.count) / 9} />}
         </div>
     )
 }
