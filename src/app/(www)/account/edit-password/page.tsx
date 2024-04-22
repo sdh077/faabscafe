@@ -4,7 +4,7 @@ import { changePassword } from './actions'
 import { useDispatch } from 'react-redux';
 import { openAlert } from '@/redux/features/alertSlice';
 
-export default function page() {
+export default function Page() {
     const dispatch = useDispatch();
     const action = async (formData: FormData) => {
         const result = await changePassword(formData)
