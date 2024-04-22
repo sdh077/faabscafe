@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import AuthBg from '@public/images/auth-image.jpg'
+import AuthBg from '@public/faabs_img/w2.jpeg'
 import AuthDecoration from '@public/images/auth-decoration.png'
 
 export default function AuthImage() {

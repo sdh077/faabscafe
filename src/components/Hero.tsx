@@ -12,7 +12,11 @@ export default function Hero({ height = '100vh', bgImg, color, children }: { hei
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed'
     }}>
-      <div className='z-10 absolute w-full h-full'>
+      <div className='absolute w-full h-full '
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.5)'
+        }}
+      >
         {children}
       </div>
     </div>

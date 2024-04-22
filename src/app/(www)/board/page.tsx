@@ -1,4 +1,3 @@
-import { Container } from '@/components/Container'
 import React from 'react'
 import PostsList from './posts-list'
 import { supabase } from '@/lib/api'
@@ -31,13 +30,11 @@ export default async function page({
     const totalPages = Math.floor((posts.count ?? 0) / 9) + 1
     return (
         <section className="relative pt-8 bg-[#F8F9FA]">
-            <Container>
-                {/* <PostsNav boards={boards} /> */}
-                <PostsList posts={posts.data} />
-                <div className='mx-auto'>
-                    <Paginantion page={Number(searchParams.page ?? '1')} totalPages={totalPages} />
-                </div>
-            </Container>
+            {/* <PostsNav boards={boards} /> */}
+            <PostsList posts={posts.data} />
+            <div className='mx-auto'>
+                <Paginantion page={Number(searchParams.page ?? '1')} totalPages={totalPages} />
+            </div>
         </section>
     )
 }

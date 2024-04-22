@@ -10,25 +10,31 @@ import { cookies } from 'next/headers'
 
 export const revalidate = 0
 
-async function getOrders() {
+async function getOrders(type: string | undefined) {
   const userId = cookies().get('uid')?.value
-  const { data, error } = await supabase.from('orders').select(
+  return await supabase.from('orders',).select(
     `*,
     orders_item(*),
     status!inner(
       *
     )
-    `
+    `, { count: 'estimated' }
   )
     .eq('user_id', userId)
     .eq('status.type', 'NORMAL')
     .order('id', { ascending: true }).returns<Orders[]>();
-  return data
 }
 
-export default async function OrdersPanelSettings() {
-  const orders = await getOrders()
+export default async function OrdersPanelSettings({
+  params,
+  searchParams,
+}: {
+  params: { id: string }
+  searchParams: { [key: string]: string | undefined }
+}
+) {
+  const orders = await getOrders(searchParams.type)
   return (
-    <OrdersPanel orders={orders ?? []} />
+    <OrdersPanel orders={orders.data ?? []} />
   )
 }

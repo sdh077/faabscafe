@@ -1,7 +1,5 @@
 import CardComponent from '@/components/Card'
 import { Container } from '@/components/Container'
-import Hero from '@/components/Hero'
-import More from '@/components/more';
 import Paginantion from '@/components/pagination';
 import Goods from '@/interface/goods';
 import GoodsCategory from '@/interface/goods-category';
@@ -42,7 +40,7 @@ export default async function Page({
     return (
         <div className=''>
             <Container>
-                <div className="overflow-hidden text-[#1C1C1B]" style={{ borderBottom: '1px solid #d0d0d0' }}>
+                <div className="overflow-hidden text-[#1C1C1B]">
                     <nav className="menu">
                         <ul className='flex items-center between-justify'>
                             <li className='relative text-xl p-8'>
@@ -60,13 +58,13 @@ export default async function Page({
                         </ul>
                     </nav>
                 </div>
-                <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
                     {goods.data?.map(item =>
                         <CardComponent key={item.id} description={item.description} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
                     )}
                 </div>
             </Container>
-            {goods.count && goods.count > 9 && <Paginantion page={page} totalPages={(goods.count) / 9} />}
+            {/* <Paginantion page={page} totalPages={(goods.count ?? 0) / 9} /> */}
         </div>
     )
 }

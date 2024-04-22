@@ -15,20 +15,20 @@ export default function SettingsSidebar() {
     }, {
       link: 'shipping',
       title: '배송지 관리'
-    },
-    // {
-    //   link: 'review',
-    //   title: '리뷰관리'
-    // }
+    }
   ]
   const sidebarAccount = [
     {
       link: 'setting',
       title: '개인정보 확인 / 수정'
     }, {
+      link: 'edit-password',
+      title: '비밀번호 변경'
+    },
+    {
       link: 'inquiry',
       title: '문의하기'
-    }
+    },
   ]
   return (
     <div className="flex flex-nowrap overflow-x-scroll no-scrollbar md:block md:overflow-auto px-3 py-6 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 min-w-[15rem] md:space-y-3">

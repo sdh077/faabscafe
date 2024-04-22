@@ -1,4 +1,4 @@
-import Goods from "./goods";
+import Goods, { GoodsOptionItem } from "./goods";
 
 export interface Cart {
     id: number;
@@ -14,4 +14,5 @@ export interface CartItem {
     cart_id: number
     created_at: string
     cart_option_item_id: number
+    goods_option_item: GoodsOptionItem
 }

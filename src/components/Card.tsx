@@ -25,8 +25,8 @@ export default function CardComponent({ id, img, title, content, flavor, link, d
                 />
             </motion.div>
             <div className="p-2">
-                <p className="mb-1 text-[14px]">{title}</p>
-                <div className="text-[11px] color-primary opacity-[0.7] text-primary">{description}</div>
+                <p className="mb-1 text-[15px]">{title}</p>
+                <div className="text-[12px] color-primary opacity-[0.7] text-primary">{description}</div>
                 <span className="text-body-secondary text-[12px]">13000원</span>
             </div>
         </a>

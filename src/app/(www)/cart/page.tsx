@@ -16,6 +16,7 @@ const getCart = async () => {
     `*, goods(*), cart_item(*, goods_option_item(*))`
   )
     .eq('user_id', uid)
+    .eq('is_bought', false)
 }
 
 export default async function Cart({

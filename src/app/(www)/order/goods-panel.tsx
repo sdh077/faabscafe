@@ -13,9 +13,7 @@ export function GoodsLine({ goods }: { goods: any }) {
                 {goods.goods.img && <FaabsImage src={'beans/' + goods.goods.img} width={100} height={142} />}
             </a>
             <div className="grow">
-                <a href="#0">
-                    <h3 className="text-lg font-semibold text-primary-800 dark:text-primary mb-1">{goods.name}</h3>
-                </a>
+                <h3 className="text-lg font-semibold text-primary-800 dark:text-primary mb-1">{goods.goods.name}</h3>
                 <div className="text-sm mb-2">{goods.cart_item.map((item: any) => item.goods_option_item.name).join(', ')} - {goods.count}개</div>
                 {/* Product meta */}
                 <div className="flex flex-wrap justify-between items-center">
@@ -24,7 +22,7 @@ export function GoodsLine({ goods }: { goods: any }) {
                         {/* Price */}
                         <div>
                             <div className="inline-flex text-sm font-medium dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">
-                                {goods.cart_item.map((item: any) => item.goods_option_item.price).reduce((a: any, b: any) => a + b)}
+                                {goods.cart_item.map((item: any) => item.goods_option_item.price).reduce((a: any, b: any) => a + b)}원
                             </div>
                         </div>
                     </div>

@@ -43,6 +43,7 @@ export const NavbarLink: FC<NavbarLinkProps> = ({
           !active && !disabled && theme.active.off,
           theme.disabled[disabled ? 'on' : 'off'],
           className,
+          'w-[100px]'
         )}
         {...props}
       >

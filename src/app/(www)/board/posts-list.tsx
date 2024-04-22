@@ -42,8 +42,8 @@ export default async function PostsList({ posts }: { posts: IDocument[] }) {
       <div className="mb-12">
         <Container>
           {/* List container */}
-          <div className="grid grid-cols-1 md:grid-cols-3 mb-8 gap-4">
-            {posts.map(post =>
+          <div className="grid grid-cols-1 md:grid-cols-4 mb-8 gap-4">
+            {posts.filter(post => post.image).map(post =>
               <PostCard key={post.id} post={post}></PostCard>
             )}
           </div>

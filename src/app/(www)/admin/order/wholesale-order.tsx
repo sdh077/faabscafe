@@ -49,7 +49,7 @@ export default function WholesaleOrder({ products, addressBook }: { products: Go
                     {/* Order details */}
                     <ul className="mb-4">
                         {productList.filter(p => p.count !== 0).map(p =>
-                            <li className="text-sm w-full flex justify-between py-3 border-b border-slate-200 dark:border-slate-700">
+                            <li key={p.id} className="text-sm w-full flex justify-between py-3 border-b border-slate-200 dark:border-slate-700">
                                 <div>{p.name}</div>
                                 <div className="font-medium text-slate-800 dark:text-slate-100">{p.price} * {p.count}</div>
                             </li>
@@ -59,7 +59,7 @@ export default function WholesaleOrder({ products, addressBook }: { products: Go
                         <label className="block text-sm font-medium mb-1" htmlFor="address">배송지 </label>
                         <select id="address" className="form-select w-full" value={addressId} onChange={e => setAddressId(Number(e.target.value))}>
                             {addressBook.map(address =>
-                                <option value={address.id}>{address.name}</option>
+                                <option key={address.id} value={address.id}>{address.name}</option>
                             )}
                         </select>
                     </div>

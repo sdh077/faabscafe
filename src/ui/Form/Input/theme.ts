@@ -6,7 +6,7 @@ export const textInputTheme: FlowbiteTextInputTheme = {
     base: 'relative w-full',
 
     input: {
-      base: 'block w-full border border-gray-400 disabled:cursor-not-allowed disabled:opacity-50',
+      base: 'block w-full ',
       sizes: {
         sm: 'p-2 sm:text-xs',
         md: 'p-2.5 text-sm',

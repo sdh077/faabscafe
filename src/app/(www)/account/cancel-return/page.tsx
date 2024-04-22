@@ -12,7 +12,6 @@ export const revalidate = 0
 
 const getOrders = async () => {
   const userId = cookies().get('uid')?.value
-  console.log(userId)
   const { data, error } = await supabase.from('orders').select(
     `*,
     orders_item(*),

@@ -38,7 +38,7 @@ export default async function page({
                 </div>
                 <p className="my-2">{post.created_at.slice(0, 10)}</p>
                 <Image className="my-6" src={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/${post.image}`} width={920} height={800} alt=""></Image>
-                <div dangerouslySetInnerHTML={{ __html: post.content }}>
+                <div dangerouslySetInnerHTML={{ __html: post.content }} className="leading-loose">
 
                 </div>
             </div>

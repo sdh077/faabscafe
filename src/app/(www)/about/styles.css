@@ -108,14 +108,27 @@ circle {
 } */
 
 section {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* 
 section div {
     height: 300px;
     border: 2px dotted var(--accent);
     position: relative;
+} */
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #1A2833;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    margin-top: 6.5rem;
 }

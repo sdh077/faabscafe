@@ -12,7 +12,6 @@ export default function AlertComponent() {
 
     useEffect(() => {
         if (alerts.length > 0) {
-            // console.log(alerts)
             const timer = setTimeout(() => {
                 dispatch(closeAlert());
             }, alerts[0].timeout);

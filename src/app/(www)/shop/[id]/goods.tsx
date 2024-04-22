@@ -41,7 +41,6 @@ export default function Goods({ info }: { info: GoodsItem }) {
                     name: addOption.map(o => o?.name).join(', '),
                     price: addOption.map(o => o?.price).reduce((a, b) => (a ?? 0) + (b ?? 0), 0) ?? 0
                 }
-                console.log(newSelect)
                 if (!selectItems.map(i => i.name).includes(newSelect.name)) {
                     setSelectItems([...selectItems, newSelect])
                     setOptions(initvalue)

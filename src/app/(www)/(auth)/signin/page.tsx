@@ -34,7 +34,7 @@ export default function SignIn({
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="email">
                 ID
               </label>
-              <TextInput id="uid" name='uid' type="text" className="form-input w-full text-gray-800" required />
+              <TextInput id="uid" name='uid' type="text" className="w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -42,11 +42,11 @@ export default function SignIn({
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="password">
                 Password
               </label>
-              <TextInput id="password" name='password' type="password" className="form-input w-full text-gray-800" required />
+              <TextInput id="password" name='password' type="password" className="w-full text-gray-800" required />
             </div>
           </div>
           {typeof state?.errors === 'string' ? state?.errors : ''}
-          <Button className="w-full mt-2" type='submit'>{load ? <Spinner /> : '로그인'}</Button>
+          <Button className="w-full mt-2" type='submit' size={'sm'}> {load ? <Spinner /> : '로그인'}</Button>
           <input type='hidden' name='callback' value={searchParams.path} />
         </form>
         <div className="flex flex-wrap my-4 text-sm text-gray-500 gap-3 justify-center">
@@ -61,7 +61,7 @@ export default function SignIn({
         <form>
           <div className="flex flex-wrap">
             <div className="w-full">
-              <Button className="w-full" href="/join">파브스커피 회원가입</Button>
+              <Button className="w-full" href="/join" size={'sm'}>파브스커피 회원가입</Button>
             </div>
           </div>
         </form>

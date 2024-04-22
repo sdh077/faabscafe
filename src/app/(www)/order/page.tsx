@@ -3,11 +3,12 @@ import { cookies } from 'next/headers';
 import { supabase } from '@/lib/api';
 import Pay from './pay';
 import CartItems from './cart-items';
-import { Address } from '@/interface/user';
+import { Address, User } from '@/interface/user';
 import { TextInput } from 'flowbite-react';
 import AddressPanel from './address-panel';
 import GoodsPanel from './goods-panel';
 import PayPanel from './pay-panel';
+import { Cart } from '@/interface/cart';
 
 export const revalidate = 0;
 const getCart = async (cartIds: string[]) => {
@@ -16,7 +17,7 @@ const getCart = async (cartIds: string[]) => {
         `*, goods(id, img,name, description), cart_item(goods_option_item(*))`
     )
         .eq('user_id', uid)
-    return await (cartIds.length ? q.in('id', cartIds) : q)
+    return await (cartIds.length ? q.in('id', cartIds) : q).returns<Cart[]>()
 
 }
 const getAddress = async () => {
@@ -24,6 +25,13 @@ const getAddress = async () => {
     const { data, error } = await supabase.from('address').select()
         .eq('user_id', userId)
         .order('id', { ascending: true }).returns<Address[]>();
+    return data
+}
+const getUser = async () => {
+    const userId = cookies().get('uid')?.value
+    const { data, error } = await supabase.from('users').select('name, email, tel')
+        .eq('id', userId)
+        .order('id', { ascending: true }).returns<User[]>();
     return data
 }
 export default async function page({
@@ -35,10 +43,11 @@ export default async function page({
 }
 ) {
     const addressBook = await getAddress()
-    const mainAddress = addressBook?.find(address => address.is_default)
+    const mainAddress = searchParams.address ? addressBook?.find(address => address.id = Number(searchParams.address)) : addressBook?.find(address => address.is_default)
     const cartIds = searchParams.carts?.split(',') ?? []
     const carts = await getCart(cartIds)
-    if (!carts.data) return <></>
+    const userInfo = await getUser()
+    if (!carts.data || !mainAddress) return <></>
     const add = (a: any, b: any) => a + b
     const amount = carts.data.map(cart =>
         cart.cart_item.map((item: any) => item.goods_option_item.price).reduce(add)
@@ -67,7 +76,6 @@ export default async function page({
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
 
@@ -94,7 +102,7 @@ export default async function page({
                                     </ul>
                                 </div>
 
-                                <Pay amount={amount} shipping={amount > 20000 ? 0 : 3000} />
+                                <Pay carts={carts.data} address={`[${mainAddress.post}] ${mainAddress.address1} ${mainAddress.address2}`} amount={amount} shipping={amount > 20000 ? 0 : 3000} />
 
 
 

@@ -10,7 +10,7 @@ export default function People({ name, image, text }: { name: string, image: Sta
         <div onClick={() => setOpenModal(true)} className="cursor-pointer">
             <Image
                 src={image}
-                width={300}
+                width={1000}
                 alt="메인 배경 이미지"
             />
             <div className="text-xl flex items-center">
@@ -22,7 +22,7 @@ export default function People({ name, image, text }: { name: string, image: Sta
                     <div className="flex justify-center	">
                         <Image
                             src={image}
-                            width={300}
+                            width={1000}
                             alt="메인 배경 이미지"
                         />
                     </div>

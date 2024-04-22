@@ -86,7 +86,6 @@ const PaginationComponent: FC<PaginationProps> = ({
         onPageChange(Math.max(currentPage - totalPages, 1));
     };
 
-    console.log(theme.pages.fastprevious?.base)
 
 
     return (

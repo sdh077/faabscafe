@@ -20,7 +20,6 @@
     "@supabase/supabase-js": "^2.39.8",
     "@tinymce/tinymce-react": "^4.3.2",
     "@types/mdx": "^2.0.10",
-    "@types/paper": "^0.12.3",
     "@types/tinymce": "^4.6.9",
     "@types/uuid": "^9.0.7",
     "antd": "^5.13.1",

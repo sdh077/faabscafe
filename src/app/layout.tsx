@@ -12,7 +12,6 @@ import './page.module.css'
 import Script from 'next/script'
 import '@/styles/swiper.css'
 
-const inter = Inter({ subsets: ['latin'] })
 declare global {
   interface Window {
     IMP: any
@@ -31,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={''}>
         <AOSInit />
         <Flowbite theme={{ theme }}>
           <Providers>

@@ -4,9 +4,9 @@ const Dot = ({ num, currentPage }: { num: number, currentPage: number }) => {
             style={{
                 width: 10,
                 height: 10,
-                border: "1px solid black",
+                border: "1px solid white",
                 borderRadius: 999,
-                backgroundColor: currentPage === num ? "black" : "transparent",
+                backgroundColor: currentPage === num ? "white" : "transparent",
                 transitionDuration: '300',
                 transition: "background-color 0.5s",
             }}
@@ -16,7 +16,7 @@ const Dot = ({ num, currentPage }: { num: number, currentPage: number }) => {
 
 const Dots = ({ currentPage }: { currentPage: number }) => {
     return (
-        <div style={{ position: "fixed", top: "50%", right: 100, zIndex: 999 }}>
+        <div style={{ position: "fixed", top: "50%", right: 400, zIndex: 999 }}>
             <div
                 style={{
                     display: "flex",

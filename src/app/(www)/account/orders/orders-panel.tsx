@@ -4,6 +4,7 @@ import { Orders } from '@/interface/orders'
 import { Button, Modal, Textarea } from 'flowbite-react'
 import { useState } from 'react'
 import { cancelReturnAction } from './actions'
+import { Badge } from "flowbite-react";
 
 const CancelView = ({ modalOrder }: { modalOrder: Orders }) => {
   const [choice, setChoice] = useState(0)
@@ -52,8 +53,11 @@ const ReturnView = ({ modalOrder }: { modalOrder: Orders }) => {
 }
 
 export default function OrdersPanel({ orders }: { orders: Orders[] }) {
+  const [type, setType] = useState<number | undefined>()
   const [openModal, setOpenModal] = useState(0);
   const [modalOrder, setModalOrder] = useState<Orders>()
+  const filterOrders = type ? orders.filter(order => order.status.id === Number(type)) : orders
+
   const normalOrder = {
     'before': orders.filter(order => order.status.name === '입금전'),
     'prepare': orders.filter(order => order.status.name === '배송준비중'),
@@ -76,7 +80,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
         <div className="flex flex-wrap justify-between">
           <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center cursor-pointer" onClick={() => setType(undefined)}>
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{orders.length}</div>
               </div>
               <div className="text-sm text-slate-500 dark:text-slate-400">전체</div>
@@ -85,7 +89,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
           {/* Unique Visitors */}
           <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center cursor-pointer" onClick={() => setType(1)}>
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.before.length}</div>
               </div>
               <div className="text-sm text-slate-500 dark:text-slate-400">입금전</div>
@@ -94,7 +98,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
           {/* Total Pageviews */}
           <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center cursor-pointer" onClick={() => setType(2)}>
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.prepare.length}</div>
               </div>
               <div className="text-sm text-slate-500 dark:text-slate-400">배송준비중</div>
@@ -103,7 +107,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
           {/* Bounce Rate */}
           <div className="flex items-center py-2 w-1/5 justify-center">
             <div className="mr-5">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center cursor-pointer" onClick={() => setType(3)}>
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.shipping.length}</div>
               </div>
               <div className="text-sm text-slate-500 dark:text-slate-400">배송중</div>
@@ -112,7 +116,7 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
           {/* Visit Duration*/}
           <div className="flex items-center  w-1/5 justify-center">
             <div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center cursor-pointer" onClick={() => setType(4)}>
                 <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{normalOrder.completed.length}</div>
               </div>
               <div className="text-sm text-slate-500 dark:text-slate-400">배송완료</div>
@@ -127,19 +131,22 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
         <section>
           <h3 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-1">주문내역</h3>
           <ul>
-            {orders.map(order =>
+            {filterOrders.map(order =>
               <li key={order.id} className="flex justify-between items-center py-3 border-b border-slate-200 dark:border-slate-700">
-                {/* Left */}
                 <div>
-                  [{order.status.name}]
-                  {order.orders_item.map(item =>
-                    <div key={item.id} className='flex'>
-                      <div className="text-slate-800 dark:text-slate-100 font-semibold mr-4">{item.product_title}</div>
-                      <div className="text-sm">{item.product_option}, {item.price}원</div>
-                    </div>
-                  )}
+                  <div>
+                    [{order.status.name}]
+                    {order.orders_item.map(item =>
+                      <div key={item.id} className='flex'>
+                        <div className="text-slate-800 dark:text-slate-100 font-semibold mr-4">{item.product_title}</div>
+                        <div className="text-sm">{item.product_option}, {item.price}원</div>
+                      </div>
+                    )}
+                  </div>
+                  <div className='my-2 flex'>
+                    <Badge>배송지</Badge> {order.address}
+                  </div>
                 </div>
-                {/* Right */}
                 <div className=" items-center ml-4">
                   <div className="mb-2">
                     <Button>배송 조회</Button>
@@ -172,6 +179,6 @@ export default function OrdersPanel({ orders }: { orders: Orders[] }) {
           </Modal.Footer>
         </form>
       </Modal>
-    </div>
+    </div >
   )
 }

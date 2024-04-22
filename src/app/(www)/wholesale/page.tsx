@@ -8,9 +8,9 @@ import Contact from './Contact'
 
 export default async function Page() {
     return (
-        <div>
+        <div className='z-1'>
             <Hero bgImg={'https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/imgs/subscription-top-banner003.jpg'} height={'530px'} >
-                <div className='flex justify-center items-center w-full h-full text-primary text-xl'>
+                <div className='flex justify-center items-center w-full h-full text-white text-xl'>
                     <div className="mx-auto text-center">
                         스페셜티 커피 시장에서 같이 성장할 파트너를 모집합니다. <br />
                         원두 납품, 케이터링, 공동 연구 및 개발, 컨설팅, 교육 파트너십에는 여러 형태가 있습니다.

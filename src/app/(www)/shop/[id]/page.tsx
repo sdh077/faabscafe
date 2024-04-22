@@ -4,6 +4,7 @@ import Goods, { GoodsOption } from '@/interface/goods';
 import { supabase } from '@/lib/api';
 import GoodsCategory from '@/interface/goods-category';
 import GoodsComponent from './goods';
+import ReturnPolicy from '@/components/ReturnPolicy';
 export type GoodsItem = Goods & {
     goods_category: GoodsCategory
     goods_option: GoodsOption
@@ -29,6 +30,7 @@ export default async function page({
             <div className='w-full flex justify-between mt-16'>
                 {info?.content && <div className='w-full mx-auto' dangerouslySetInnerHTML={{ __html: info?.content }} />}
             </div>
+            <ReturnPolicy />
         </Container >
     )
 }
