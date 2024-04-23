@@ -26,7 +26,7 @@ export default function Nav({ name, brand, navItems }: { name: string, brand: { 
         </Navbar>
     )
     return (
-        <Navbar className={clsx('sticky w-full top-0 bg-white', 'z-20 px-10')} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
+        <Navbar className={clsx('sticky w-full top-0 bg-white', 'z-20 py-5 px-10')} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
             <NavbarBrand href="/">
                 <Image src={Logo2} width={200} height={65} className="mr-3 pl-30" alt="Flowbite React Logo" />
                 {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{brand.title}</span> */}

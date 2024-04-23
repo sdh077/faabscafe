@@ -15,10 +15,16 @@ const initialState = {
 const SelectOption = ({ title, id }: { title: string, id: string }) => {
     const [count, setCount] = useState(1)
     return (
-        <div className='my-4'>
-            {title}
-            <input name='[option]' value={`${id}-${count}`} type='hidden'></input>
-            <TextInput type='number' value={count} onChange={e => setCount(Number(e.target.value))} />
+        <div className='my-4 flex justify-between items-center'>
+            <div>
+                {title}
+                <input name='[option]' value={`${id}-${count}`} type='hidden'></input>
+            </div>
+            <div className='flex border-2 w-fit'>
+                <div className='w-[40px] h-[40px] cursor-pointer bg-gray-100 flex justify-center items-center' onClick={() => setCount(count => count === 1 ? 1 : count - 1)}>-</div>
+                <div className='w-[40px] h-[40px] cursor-pointer flex justify-center items-center'>{count}</div>
+                <div className='w-[40px] h-[40px] cursor-pointer bg-gray-100 flex justify-center items-center' onClick={() => setCount(count => count + 1)}>+</div>
+            </div>
         </div>
     )
 }

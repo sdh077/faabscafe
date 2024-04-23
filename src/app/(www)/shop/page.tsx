@@ -1,6 +1,5 @@
 import CardComponent from '@/components/Card'
 import { Container } from '@/components/Container'
-import Paginantion from '@/components/pagination';
 import Goods from '@/interface/goods';
 import GoodsCategory from '@/interface/goods-category';
 import { supabase } from '@/lib/api';
@@ -45,7 +44,9 @@ export default async function Page({
                         <ul className='flex items-center between-justify'>
                             <li className='relative text-xl p-8'>
                                 <a className={transition}
-                                    href="/shop">ALL</a>
+                                    href="/shop">
+                                    ALL
+                                </a>
                             </li>
                             {categorys?.map(category =>
                                 <li key={category.id} className='relative text-xl p-8'>

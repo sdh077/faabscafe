@@ -38,7 +38,7 @@ const Dot = ({ num, currentPage }: { num: number, currentPage: number }) => {
 
 const Dots = ({ currentPage, setCurrentPage }: { currentPage: number, setCurrentPage: Dispatch<SetStateAction<number>> }) => {
     return (
-        <div style={{ position: "fixed", top: "50%", right: 100, zIndex: 999 }}>
+        <div style={{ position: "fixed", top: "40%", right: 50, zIndex: 999 }}>
             <div
                 style={{
                     display: "flex",

@@ -89,7 +89,7 @@ export default function Full() {
                         </Video>,
                         <img key={3} src='/faabs_img/full1.jpeg' className='w-full h-full' />
                         , <Video key={4} src="/video/officeloop.mp4" data-aos="fade-up">
-                            <div data-aos="fade-right" className='absolute text-5xl left-[100px] bottom-25 text-white opacity-100 z-[11]'>
+                            <div data-aos="fade-right" className='absolute text-5xl left-[100px] bottom-[10%] text-white opacity-100 z-[11]'>
                                 Coffee is Good
                             </div>
                         </Video>][currentPage]}
