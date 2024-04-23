@@ -28,7 +28,7 @@ export default async function page({
         <Container>
             <GoodsComponent info={info} />
             <div className='w-full flex justify-between mt-16'>
-                {info?.content && <div className='w-full mx-auto' dangerouslySetInnerHTML={{ __html: info?.content }} />}
+                {info?.content && <div className='w-full flex justify-center' dangerouslySetInnerHTML={{ __html: info?.content }} />}
             </div>
             <ReturnPolicy />
         </Container >

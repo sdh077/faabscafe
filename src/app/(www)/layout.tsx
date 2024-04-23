@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import { Navs } from '@/interface/nav'
 import Cursor from '@/components/cursor/Cursor'
 
+import { AOSInit } from '@/components/Aos'
 export const navItems: Navs[] = [
     {
         name: '소개',
@@ -40,6 +41,7 @@ export default function layout({
 
     return (
         <div>
+            <AOSInit />
             <Nav
                 name={name?.value ?? ''}
                 brand={{

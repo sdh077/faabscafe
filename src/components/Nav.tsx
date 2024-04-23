@@ -10,25 +10,28 @@ import { usePathname } from 'next/navigation'
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink } from '@/ui/Navbar';
 import { NavItem } from '@/interface/nav';
 import { logout } from '@/app/(www)/(auth)/signin/actions';
+import Logo from '@public/faabs_img/logo.png'
+import Logo2 from '@public/faabs_img/logo2.png'
 import clsx from 'clsx';
+import Image from 'next/image'
 export default function Nav({ name, brand, navItems }: { name: string, brand: { img?: string, title: string }, navItems: NavItem[] }) {
     const pathname = usePathname()
     const main = pathname === '/'
     if (main) return (
-        <Navbar className={clsx('fixed w-full top-0 bg-transparent', 'z-20 py-4 md:py-8')} >
+        <Navbar className={clsx('fixed w-full top-0 bg-transparent', 'z-20 w-100')} >
             <NavbarBrand href="/">
-                <span className="self-center whitespace-nowrap text-xl font-semibold text-white">{brand.title}</span>
+                <Image src={Logo} width={120} height={175} className="mr-3 " alt="Flowbite React Logo" />
+                {/* <span className="self-center whitespace-nowrap text-xl font-semibold text-white">{brand.title}</span> */}
             </NavbarBrand>
         </Navbar>
     )
     return (
-        <Navbar className={clsx('sticky w-full top-0 bg-white', 'z-20 py-4 md:py-8')} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
+        <Navbar className={clsx('sticky w-full top-0 bg-white', 'z-20 px-10')} fluid rounded style={{ boxShadow: '0 11px 24px rgba(15,19,33,.04)' }} >
             <NavbarBrand href="/">
-                {brand?.img && <img src={brand.img} className="mr-3 h-[20px] w-[205px] sm:h-[20px]" alt="Flowbite React Logo" />}
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{brand.title}</span>
+                <Image src={Logo2} width={200} height={65} className="mr-3 pl-30" alt="Flowbite React Logo" />
+                {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">{brand.title}</span> */}
             </NavbarBrand>
-            <Navbar.Toggle />
-            <div className="flex md:order-2">
+            <div className="flex md:order-3">
                 {!name ?
                     <NavbarLink href='/signin'>
                         <Button size={'xs'}>Log in</Button>
@@ -61,6 +64,7 @@ export default function Nav({ name, brand, navItems }: { name: string, brand: { 
                     </NavbarLink>
                 )}
             </NavbarCollapse>
+            <Navbar.Toggle />
         </Navbar>
     );
 }

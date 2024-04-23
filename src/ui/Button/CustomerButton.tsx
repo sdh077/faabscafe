@@ -1,7 +1,7 @@
 import { DeepPartial } from 'flowbite-react/lib/esm/types';
 import { mergeDeep } from '@/components/helpers/merge-deep';
 import { Button, Tooltip } from 'flowbite-react';
-import { ComponentPropsWithoutRef, ElementType, ForwardedRef, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ElementType, ForwardedRef, ReactNode, useEffect, useRef } from 'react';
 import { ButtonBaseProps } from './ButtonBase';
 
 import { twMerge } from 'tailwind-merge';
@@ -14,6 +14,7 @@ import type {
     FlowbiteColors,
     FlowbiteSizes,
 } from 'flowbite-react';
+import ripple from 'ripple-effects';
 
 export interface FlowbiteButtonTheme {
     base: string;
@@ -77,7 +78,16 @@ const ButtonComponent = <T extends ElementType = 'button'>(
         ...props
     }: IButton,
     ref: ForwardedRef<T>) => {
+    const button = useRef(null)
 
+    useEffect(() => {
+        if (!button.current) return
+        ripple(button.current, {
+            background: 'radial-gragiend(white,black)',
+            opacity: 0.4,
+            triggerExcept: 'button', // BUtton children of the card will not cause a trigger to the ripple
+        })
+    }, [])
     //width 값 설정
     const widthObject = {
         "sm": 'w-24', //96px
@@ -101,6 +111,7 @@ const ButtonComponent = <T extends ElementType = 'button'>(
                 className,
                 widthClass
             )}
+            ref={button}
 
             {...props}
         >
@@ -108,7 +119,7 @@ const ButtonComponent = <T extends ElementType = 'button'>(
             {children}
             {icon?.direction === 'right' && <icon.Icon />}
         </Button>
-        // const theirProps = props as ButtonBaseProps<T>;
+    // const theirProps = props as ButtonBaseProps<T>;
 
 
     return (

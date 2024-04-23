@@ -18,8 +18,8 @@ export default async function Page() {
                 </div>
             </Hero>
             <Container className='my-24'>
-                <div className='flex justify-between'>
-                    <div className="text-[20px] w-1/6">원두납품</div>
+                <div className='flex justify-between' data-aos="fade-up">
+                    <div className="text-[20px] md:w-1/6">원두납품</div>
                     <div className="text-[16px] w-4/6"><p>
                         원두 납품은 기본적으로 파브스 매장에서 대면으로 상담을 진행합니다.
                         <br />대면 상담에서는 원두를 단순히 공급하는 것을 떠나 파브스 커피의 원두를 사용하여 스페셜티 커피 시장에서 어떤 방향성을 가질지에 대해 진심으로 상담이 이뤄집니다.
@@ -47,8 +47,8 @@ export default async function Page() {
             </Container>
 
             <Container className='my-24'>
-                <div className='flex justify-between'>
-                    <div className="text-[20px] w-1/6">케이터링</div>
+                <div className='flex justify-between' data-aos="fade-up">
+                    <div className="text-[20px] md:w-1/6">케이터링</div>
                     <div className="text-[16px] w-4/6"><p>
                         파브스 커피를 약 40잔 (뜨거운 음료 기준)이 담기는 보온병 또는 종이팩 약 15잔 (뜨거운 음료 기준)에 담아 제공 드립니다.
                         <br />쿠키와 같은 디져트 류도 함께 주문 가능합니다.
@@ -72,8 +72,8 @@ export default async function Page() {
                     </div> */}
                 </div>
             </Container>
-            <div className="grid grid-cols-3 mx-4">
-                <div className="">
+            <div className="grid grid-cols-1 md:grid-cols-3 mx-4">
+                <div className="mb-4">
                     <div className="mobile-box">
                         <div className="area1">
                             <div className="">
@@ -87,7 +87,7 @@ export default async function Page() {
                         </div>
                     </div>
                 </div>
-                <div className="">
+                <div className="mb-4">
                     <div className="mobile-box">
                         <div className="area1">
                             <div className="">
@@ -100,7 +100,7 @@ export default async function Page() {
                         </div>
                     </div>
                 </div>
-                <div className="">
+                <div className="mb-4">
                     <div className="mobile-box last">
                         <div className="area1">
                             <div className="">
@@ -115,7 +115,7 @@ export default async function Page() {
                 </div>
             </div>
             <Container className='my-24'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between' data-aos="fade-up">
                     <div className="text-[20px] w-1/3">공동 연구 및 개발</div>
                     <div className="text-[16px] w-2/3"><p>
                         Good wave with Good coffee라는 파브스의 비젼에 어울리는 프로젝트에 대한 논의를 환영합니다.
@@ -125,7 +125,7 @@ export default async function Page() {
                 </div>
             </Container>
             <Container className='my-24'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between' data-aos="fade-up">
                     <div className="text-[20px] w-1/3">컨설팅</div>
                     <div className="text-[16px] w-2/3"><p>
                         바 구성을 비롯한 인테리어와 카페의 컨셉과 운영의 기반을 만드는 작업까지 진행이 가능합니다.
@@ -134,7 +134,7 @@ export default async function Page() {
                 </div>
             </Container>
             <Container className='my-24'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between' data-aos="fade-up">
                     <div className="text-[20px] w-1/3">교육</div>
                     <div className="text-[16px] w-2/3"><p>
                         로스팅과 추출을 비롯해 팀 센서리 및 조직 강화 솔루션 포함하여 교육을 진행하고 있습니다.

@@ -5,7 +5,7 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgb(253, 92, 205);
+    /* border: 1px solid rgb(253, 92, 205); */
     position: fixed;
     pointer-events: none;
     transition: transform 0.1s;
@@ -14,5 +14,5 @@
 .small_circle {
     width: 16px;
     height: 16px;
-    background-color: rgb(90, 176, 247);
+    border: 1px solid rgb(90, 176, 247);
 }

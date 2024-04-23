@@ -56,14 +56,16 @@ function Item({ handleImage, year, value }: { handleImage: any, year: string, va
 
     return (
         <div className="my-20 flex ">
-            <div ref={ref} className="timeline w-[80%] px-10 py-2 pe-lg-7 rounded-lg">
-                {/* bg-[#1A2833]  text-[#F5581E]*/}
-                <div className="text-lg  text-[40px] text-bold">{year}</div>
-                <hr className="mt-4 mb-10 bg-black" style={{ height: '2px' }} />
-                <div>
-                    {value.map(item =>
-                        <div className=" text-sm mb-1" key={item.id}>{item.tag ? `[${item.tag}]` : ''}{item.month ? `${item.month}월 ` : ''}{item.content}</div>
-                    )}
+            <div ref={ref} className="timeline w-[80%] px-20 py-2 pe-lg-7 rounded-lg">
+                <div data-aos="fade-left">
+                    {/* bg-[#1A2833]  text-[#F5581E]*/}
+                    <div className="text-lg  text-[40px] text-bold">{year}</div>
+                    <hr className="mt-4 mb-10 bg-black" style={{ height: '2px' }} />
+                    <div>
+                        {value.map(item =>
+                            <div className=" text-sm mb-1" key={item.id}>{item.tag ? `[${item.tag}]` : ''}{item.month ? `${item.month}월 ` : ''}{item.content}</div>
+                        )}
+                    </div>
                 </div>
             </div>
             {<CheckIcon />}

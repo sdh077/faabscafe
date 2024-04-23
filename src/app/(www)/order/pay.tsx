@@ -1,11 +1,13 @@
 'use client'
 import React, { useState } from 'react'
 import Script from 'next/script';
-import { Button, ToggleSwitch } from 'flowbite-react';
+import { ToggleSwitch } from 'flowbite-react';
 import { IMPResponse } from '@/interface/pay';
 import { v4 as uuidv4 } from 'uuid';
 import { Cart } from '@/interface/cart';
 import { orderSuccess } from './actions';
+import ripple from "ripple-effects";
+import Button from '@/ui/Button';
 
 export default function Pay({ carts, amount, shipping, address }: { carts: Cart[], amount: number, shipping: number, address: string }) {
     const [switch1, setSwitch1] = useState(false);

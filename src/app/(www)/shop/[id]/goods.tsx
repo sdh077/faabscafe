@@ -50,8 +50,18 @@ export default function Goods({ info }: { info: GoodsItem }) {
     }, [options])
     return (
         <form action={formAction}>
-            <div className="flex items-center justify-between mt-10">
-                <div className="me-auto order-last relative z-10 w-1/2">
+            <div className="md:flex justify-between mt-10">
+                <div className="position-relative px-6 pb-12 md:w-1/2">
+                    {/*feature image*/}
+                    {info.img && <Image
+                        className="img-fluid position-relative w-100 d-block mx-auto rounded-5 shadow-lg"
+                        alt=""
+                        src={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/beans/${info.img}`}
+                        width={960}
+                        height={1000}
+                    />}
+                </div>
+                <div className="me-auto relative z-10 md:w-1/2 px-6">
                     <h6 className="mb-3 text-body-secondary" >
                         {info.goods_category.title}
                     </h6>
@@ -113,16 +123,6 @@ export default function Goods({ info }: { info: GoodsItem }) {
                     <i className="bx bxs-chevron-right">
                         <i className="bx bxs-chevron-right"></i>
                     </i>
-                </div>
-                <div className="position-relative pe-12 pb-12 w-1/2">
-                    {/*feature image*/}
-                    {info.img && <Image
-                        className="img-fluid position-relative w-100 d-block mx-auto rounded-5 shadow-lg"
-                        alt=""
-                        src={`https://mrhpbteqzpwrmvlorobs.supabase.co/storage/v1/object/public/faabs/beans/${info.img}`}
-                        width={960}
-                        height={1000}
-                    />}
                 </div>
             </div>
             <input type='hidden' name='pathname' value={pathname} />
