@@ -24,6 +24,7 @@ export default function Video({ src, children }: { src: string, children: React.
                 autoPlay
                 loop
                 muted
+                playsInline
             >
                 <source src={src} type='video/mp4'></source>
             </video>

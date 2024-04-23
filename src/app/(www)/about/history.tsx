@@ -11,7 +11,7 @@ import { IHistory } from "@/interface/history";
 
 function CheckIcon() {
     return (
-        <div className="elementor-icon absolute left-[50%] -ml-[16px] z-5 text-[20px]">
+        <div className="elementor-icon absolute left-[10%] md:left-[50%] -ml-[16px] z-5 text-[20px]">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={32}
@@ -56,7 +56,7 @@ function Item({ handleImage, year, value }: { handleImage: any, year: string, va
 
     return (
         <div className="my-20 flex ">
-            <div ref={ref} className="timeline w-[80%] px-20 py-2 pe-lg-7 rounded-lg">
+            <div ref={ref} className="timeline w-full md:w-[80%] px-10 md:px-20 py-2 pe-lg-7 rounded-lg">
                 <div data-aos="fade-left">
                     {/* bg-[#1A2833]  text-[#F5581E]*/}
                     <div className="text-lg  text-[40px] text-bold">{year}</div>
@@ -98,7 +98,7 @@ export default function History({ historys }: { historys: IHistory[] }) {
     return (
         <div className="relative mb-20">
             <div className="flex w-full relative p-6">
-                <div className="w-1/2">
+                <div className="hidden md:block w-1/2">
                     <div className="sticky top-[80px] ml-[10%]" ref={scope}>
                         <div className="w-[80%]">
                             {/* <motion.div
@@ -116,7 +116,7 @@ export default function History({ historys }: { historys: IHistory[] }) {
                         </div>
                     </div>
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                     {Object.entries(arr).map(([key, value]) =>
                         <Item key={key} year={key} handleImage={handleImage} value={value} />
                     )}
