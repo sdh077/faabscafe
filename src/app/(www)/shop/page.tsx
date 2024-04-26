@@ -59,7 +59,7 @@ export default async function Page({
                         </ul>
                     </nav>
                 </div>
-                <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                     {goods.data?.map(item =>
                         <CardComponent key={item.id} description={item.description} id={item.id} flavor={item.flavor} img={item.img} title={item.name} content={item.description} link={`/shop/${item.id}`} />
                     )}

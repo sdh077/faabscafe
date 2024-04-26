@@ -6,6 +6,7 @@ import { Navs } from '@/interface/nav'
 import Cursor from '@/components/cursor/Cursor'
 
 import { AOSInit } from '@/components/Aos'
+import { supabase } from '@/lib/api'
 export const navItems: Navs[] = [
     {
         name: '소개',
@@ -31,14 +32,14 @@ export const navItems: Navs[] = [
     },
 ]
 
-export default function layout({
+
+export default async function layout({
     children,
 }: {
     children: React.ReactNode
 }) {
     const cookieStore = cookies()
     const name = cookieStore.get('name')
-
     return (
         <div>
             <AOSInit />

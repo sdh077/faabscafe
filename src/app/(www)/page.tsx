@@ -4,10 +4,22 @@ import Cursor from '@/components/cursor/Cursor';
 import Ripple from '@/components/Ripple';
 import { FooterIcon } from 'flowbite-react';
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { supabase } from '@/lib/api';
+import dynamic from 'next/dynamic';
+
+const Popup = dynamic(() => import('@/components/Popup'), {
+  ssr: false,
+})
+
+const getPopup = async () => {
+  return await supabase.from('popup').select('*').eq('isActive', true)
+}
 
 export default async function Home() {
+  const pops = await getPopup();
   return (
     <div className='flex'>
+      {pops.data && <Popup pops={pops.data} />}
       <div className='hidden md:block'><Cursor /></div>
       <div className='h-[100vh] w-full md:w-[270px] absolute md:relative bg-transparent md:bg-white'>
         <div className='md:w-[200px] text-center absolute text-white md:text-black py-6 md:pt-100 z-[12] right-[30px] top-0 md:left-0 md:top-[170px]'>

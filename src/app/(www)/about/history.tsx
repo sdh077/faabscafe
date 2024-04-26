@@ -56,9 +56,8 @@ function Item({ handleImage, year, value }: { handleImage: any, year: string, va
 
     return (
         <div className="my-20 flex ">
-            <div ref={ref} className="timeline w-full md:w-[80%] px-10 md:px-20 py-2 pe-lg-7 rounded-lg">
+            <div ref={ref} className="timeline w-full md:w-[80%] px-10 md:px-20 py-2 pe-lg-7 rounded-lg overflow-x-hidden">
                 <div data-aos="fade-left">
-                    {/* bg-[#1A2833]  text-[#F5581E]*/}
                     <div className="text-lg  text-[40px] text-bold">{year}</div>
                     <hr className="mt-4 mb-10 bg-black" style={{ height: '2px' }} />
                     <div>
@@ -96,12 +95,11 @@ export default function History({ historys }: { historys: IHistory[] }) {
         }
     };
     return (
-        <div className="relative mb-20">
-            <div className="flex w-full relative p-6">
-                <div className="hidden md:block w-1/2">
-                    <div className="sticky top-[80px] ml-[10%]" ref={scope}>
-                        <div className="w-[80%]">
-                            {/* <motion.div
+        <div className="flex w-full relative p-6 mb-20">
+            <div className="hidden md:block w-1/2">
+                <div className="sticky top-[80px] ml-[10%]" ref={scope}>
+                    <div className="w-[80%]">
+                        {/* <motion.div
                                 key={image.src}
                                 animate={{ x: 0 }}
                                 transition={{ delay: 0.3 }}
@@ -111,17 +109,16 @@ export default function History({ historys }: { historys: IHistory[] }) {
                                     transition: "all cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                                 }}
                             > */}
-                            <Image key={image.src} src={image} width={1000} height={800} alt="" />
-                            {/* </motion.div> */}
-                        </div>
+                        <Image key={image.src} src={image} width={1000} height={800} alt="" />
+                        {/* </motion.div> */}
                     </div>
                 </div>
-                <div className="w-full md:w-1/2">
-                    {Object.entries(arr).map(([key, value]) =>
-                        <Item key={key} year={key} handleImage={handleImage} value={value} />
-                    )}
-                </div>
             </div>
-        </div >
+            <div className="w-full md:w-1/2">
+                {Object.entries(arr).map(([key, value]) =>
+                    <Item key={key} year={key} handleImage={handleImage} value={value} />
+                )}
+            </div>
+        </div>
     );
 }
